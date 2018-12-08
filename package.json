@@ -1,0 +1,37 @@
+{
+  "name": "sticky-notes",
+  "version": "1.0.0",
+  "description": "Sticky note app built using React and MongoDB",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kikim1025/Sticky-Notes.git"
+  },
+  "keywords": [
+    "React",
+    "MongoDB",
+    "Mongoose",
+    "Node.js",
+    "Express",
+    "Javascript",
+    "frontend",
+    "backend",
+    "fullstack"
+  ],
+  "author": "Ki Beom Kim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kikim1025/Sticky-Notes/issues"
+  },
+  "homepage": "https://github.com/kikim1025/Sticky-Notes#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bcryptjs": "^2.4.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.15"
+  }
+}
