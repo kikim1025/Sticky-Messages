@@ -5,6 +5,7 @@ var MessageSchema = new Schema({
     title: {
         type: String,
         trim: true,
+        unique: true,
         required: `Title is required`
     },
     body: {
