@@ -1,3 +1,3 @@
 module.exports = {
-    JWT_KEY = `23j%f0w^q-ewn~!#$RT`
+    JWT_KEY = `2Tf387%28h*dns!f9-9`
 }
