@@ -1,25 +1,34 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
+import HomePage from './components/Home/HomePage';
+import LoginPage from './components/Login/LoginPage';
 import './App.css';
 
-class App extends Component {
+class App extends React.Component {
+  state = {
+    jwt: '',
+    loggedIn: false,
+    alert: ''
+  }
+
+  login = (token) => {
+    this.setState({  jwt: token, loggedIn: true })
+  }
+
+  logout = () => {
+    this.setState({ jwt: '', alert: 'Token expired. Please log in again.', loggedIn: false });
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        {this.state.loggedIn
+          ? <div>
+              <HomePage jwt={this.state.jwt} logout={this.logout} />
+            </div>
+          : <div>
+              <LoginPage login={this.login} alert={this.state.alert} />
+            </div>
+        }
       </div>
     );
   }

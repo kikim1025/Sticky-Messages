@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
-const envVar = require(`./envVar`);
+const envVar = require('./envVar');
 for (let v in envVar) {
     process.env[v] = envVar[v]; //in case i need more env variables
 }
@@ -11,8 +11,8 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, `/client/public`)));
-app.set("JWTKey", process.env.JWT_KEY);
+app.use(express.static(path.join(__dirname, '/client/public')));
+app.set('JWTKey', process.env.JWT_KEY);
 
 /*
 if (process.env.MONGODB_URI) {

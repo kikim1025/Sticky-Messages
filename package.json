@@ -29,7 +29,6 @@
   },
   "homepage": "https://github.com/kikim1025/Sticky-Notes#readme",
   "dependencies": {
-    "axios": "^0.18.0",
     "bcryptjs": "^2.4.3",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.4.0",
