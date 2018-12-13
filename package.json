@@ -1,7 +1,7 @@
 {
-  "name": "sticky-notes",
+  "name": "sticky-messages",
   "version": "1.0.0",
-  "description": "Sticky note app built using React and MongoDB",
+  "description": "Sticky message app built using React and MongoDB",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kikim1025/Sticky-Notes.git"
+    "url": "git+https://github.com/kikim1025/Sticky-Messages.git"
   },
   "keywords": [
     "React",
@@ -25,9 +25,9 @@
   "author": "Ki Beom Kim",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kikim1025/Sticky-Notes/issues"
+    "url": "https://github.com/kikim1025/Sticky-Messages/issues"
   },
-  "homepage": "https://github.com/kikim1025/Sticky-Notes#readme",
+  "homepage": "https://github.com/kikim1025/Sticky-Messages#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "express": "^4.16.4",
