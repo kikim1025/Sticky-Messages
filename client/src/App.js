@@ -20,12 +20,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id='main'>
         {this.state.loggedIn
-          ? <div>
+          ? <div id='home-page'>
               <HomePage jwt={this.state.jwt} logout={this.logout} />
             </div>
-          : <div>
+          : <div id='login-page'>
               <LoginPage login={this.login} alert={this.state.alert} />
             </div>
         }

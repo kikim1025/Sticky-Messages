@@ -1,0 +1,56 @@
+.message {
+    background-color: rgb(247, 247, 176);
+    box-shadow: 5px 10px 7px rgb(51, 51, 51);
+    height: 300px;
+    margin: auto;
+    overflow: auto;
+    padding: 12px;
+    text-align: left;
+    transition: transform .25s;
+    width: 300px;
+    word-wrap: break-word;
+}
+
+.message:nth-child(2n) {
+    background-color: rgb(220, 245, 244);
+    position: relative;
+    top:3px;
+    transform: rotate(2deg);
+}
+
+.message:nth-child(3n) {
+    position: relative;
+    top: -3px;
+    transform: rotate(-3deg);
+}
+
+.message:nth-child(5n) {
+    background-color: rgb(209, 247, 194);
+    position: relative;
+    top: -3px;
+    transform: rotate(-1.5deg);
+}
+
+.message:hover {
+    box-shadow: 3px 3px 5px rgb(51, 51, 51);
+    transform: scale(1.3);
+    z-index: 1;
+}
+
+.message__title {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;   
+}
+
+.message__sender {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.message__receiver {
+    border-bottom: 1px dotted black;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.message__body {
+    font-family: cursive;
+}

@@ -1,0 +1,9 @@
+.button--loginform {
+    background-color: rgba(241, 166, 248, 0.918);
+    border: 1px groove rgb(49, 3, 49);
+}
+
+.button--loginform:hover {
+    background-color: rgba(6, 1, 7, 0.801);
+    color: rgb(240, 214, 245);
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import $ from 'axios';
+import './MessageModal.css'
 
 class MessageModal extends React.Component {
     constructor(props) {
@@ -67,8 +68,8 @@ class MessageModal extends React.Component {
 
     render() {
         return (
-            <div> 
-                <Button color='info' onClick={this.toggleModal}>Create a Sticky Message</Button>
+            <div id='button-container--post-message'> 
+                <Button id='button--modal' onClick={this.toggleModal}>Post a Sticky Message</Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}>A New Sticky Message</ModalHeader>
                     <ModalBody>
@@ -86,8 +87,11 @@ class MessageModal extends React.Component {
                                     ))}
                                 </DropdownMenu>
                             </Dropdown>
-                            <input name='title' onChange={this.getInput}></input>
-                            <input name='body' onChange={this.getInput}></input>
+                            <div id='input-modal'>
+                                <textarea className='input-modal--input' name='title' onChange={this.getInput} cols='48' rows='1' maxLength='15' placeholder='Write a title here'></textarea>
+                                <hr />
+                                <textarea className='input-modal--input' name='body' onChange={this.getInput} cols='48' rows='10' maxLength='300' placeholder='Write a message here'></textarea>
+                            </div>
                         </form>
                     </ModalBody>
                     <div>{this.state.alertModal}</div>

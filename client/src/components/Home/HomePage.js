@@ -2,6 +2,7 @@ import React from 'react';
 import $ from 'axios';
 import MessageModal from './Message/MessageModal';
 import Message from './Message/Message';
+import './HomePage.css';
 
 class HomePage extends React.Component {
   state = {
@@ -35,7 +36,7 @@ class HomePage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id='home-page__container'>
         <MessageModal jwt={this.props.jwt} userList={this.state.userList} getData={this.getData} logout={this.props.logout} />
         { this.state.messageList.length === 0
           ? <div>No new messages. Please post one!</div>

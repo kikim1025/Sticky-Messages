@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from 'axios';
 import LoginForm from './LoginForm';
-//import './LoginPage.css';
+import './LoginPage.css';
 
 class LoginPage extends React.Component {
     state = {
@@ -17,8 +17,8 @@ class LoginPage extends React.Component {
 
     handleLoginForm = (event) => {
         event.preventDefault();
-        if (!this.state.username.length || !this.state.password.length || this.state.username.length > 9 || this.state.password.length > 9) {
-            this.setState({ alert: 'Username and password must be longer than 0 and shorter than 10.'});
+        if (!this.state.username.length || !this.state.password.length) {
+            this.setState({ alert: 'Username and password must be longer than 0 and shorter than 15.'});
         } else {
             if (event.target.name === 'login') {
                 $.post('/api/user/login', { username: this.state.username, password: this.state.password })
@@ -49,7 +49,7 @@ class LoginPage extends React.Component {
     render() {
         return(
             <div>
-                <div>{this.state.alert}</div>
+                <div className='alert'>{this.state.alert}</div>
                 <LoginForm getLoginInput={this.getLoginInput} handleLoginForm={this.handleLoginForm} />
             </div>
         );
