@@ -1,21 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
-/*
-const envVar = require('./envVar');
-if (process.env.NODE_ENV !== 'production') {
-  for (let v in envVar) {
-    process.env[v] = envVar[v]; //in case i need more env variables
-  }
-}
-*/
+
 const PORT = process.env.PORT || 3030;
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('./client/public'));
+  app.use(express.static('./client/build'));
 } else {
   app.use(express.static(path.join(__dirname, './client/public')));
 }
