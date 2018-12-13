@@ -18,7 +18,7 @@ app.set('JWTKey', process.env.JWT_KEY);
 require('./routes/apiRoutes')(app);
 //require('./routes/htmlRoutes')(app);
 app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, './client/build/index.html'))
+  res.sendFile(path.join(__dirname, './client/index.html'))
 });
 
 
