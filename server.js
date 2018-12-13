@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 if (process.env.NODE_ENV === 'production') {
   console.log("here");
-  app.use(express.static('./client/build'));
+  app.use(express.static('./client/public'));
 } else {
   app.use(express.static(path.join(__dirname, './client/public')));
 }
