@@ -1,3 +1,8 @@
+#alert-temp {
+    color: pink;
+    font-size: 30px;
+}
+
 #home-page__container {
     background: linear-gradient(101deg, #502900, #D2AB6F, #502900, #AA8347, #502900);
     border: 6px groove saddlebrown;

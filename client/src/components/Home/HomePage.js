@@ -39,7 +39,7 @@ class HomePage extends React.Component {
       <div id='home-page__container'>
         <MessageModal jwt={this.props.jwt} userList={this.state.userList} getData={this.getData} logout={this.props.logout} />
         { this.state.messageList.length === 0
-          ? <div>No new messages. Please post one!</div>
+          ? <div id='alert-temp'>Retrieving messages...</div> // Message database will never be empty in practice because I will post one right after deployment.
           : this.state.messageList.map((m, i) => (
               <Message
                 title={m.title}
