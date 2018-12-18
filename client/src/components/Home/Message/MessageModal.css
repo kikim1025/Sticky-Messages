@@ -19,6 +19,11 @@
     color: pink;
 }
 
+#alert--modal {
+    color: rgb(219, 37, 37);
+    padding: 0 20px;
+}
+
 #input-modal {
     background-color: rgb(247, 247, 176);
     height: 350px;

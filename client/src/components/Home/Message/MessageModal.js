@@ -24,7 +24,7 @@ class MessageModal extends React.Component {
     }
 
     toggleModal() {
-        this.setState({ modal: !this.state.modal });
+        this.setState({ dropdownVal: 'Choose Receiver', dropdownValId: '', title: '', body: '', alert: '', alertModal: '', modal: !this.state.modal });
     }
 
     toggleDropdown() {
@@ -53,7 +53,6 @@ class MessageModal extends React.Component {
             .then((res) => {
                 this.toggleModal();
                 if (res.data.status === 200) {
-                    this.setState({ title: '', body: '', alert: '', alertModal: '' });
                     this.props.getData();
                 } else if (res.data.status === 401) {
                     this.props.logout();
@@ -70,8 +69,10 @@ class MessageModal extends React.Component {
         return (
             <div id='button-container--post-message'> 
                 <Button id='button--modal' onClick={this.toggleModal}>Post a Sticky Message</Button>
+                <div>{this.state.alert}</div>
                 <Modal isOpen={this.state.modal} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}>A New Sticky Message</ModalHeader>
+                    <div id='alert--modal'>{this.state.alertModal}</div>
                     <ModalBody>
                         <form>
                             <Dropdown isOpen={this.state.dropdown} toggle={this.toggleDropdown}>
@@ -94,13 +95,11 @@ class MessageModal extends React.Component {
                             </div>
                         </form>
                     </ModalBody>
-                    <div>{this.state.alertModal}</div>
                     <ModalFooter>
                         <Button color='primary' onClick={this.sendMessage}>Submit Message</Button>
                         <Button color='danger' onClick={this.toggleModal}>Cancel</Button>
                     </ModalFooter>
                 </Modal>
-                <div>{this.state.alert}</div>
             </div>
         );
     }

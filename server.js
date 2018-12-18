@@ -12,7 +12,8 @@ if (process.env.NODE_ENV === 'production') {
 } else {
   app.use(express.static(path.join(__dirname, './client/public')));
 }
-app.set('JWTKey', process.env.JWT_KEY);
+// set environmental variable for JWT auth
+app.set('JWTKey', process.env.JWTKey);
 
 require('./routes/apiRoutes')(app);
 require('./routes/htmlRoutes')(app);

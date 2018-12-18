@@ -5,12 +5,16 @@ var MessageSchema = new Schema({
     title: {
         type: String,
         trim: true,
-        required: 'Title is required'
+        required: 'Title is required',
+        minlength: 1,
+        maxlength: 15
     },
     body: {
         type: String,
         trim: true,
-        required: 'Body text is required'
+        required: 'Body text is required',
+        minlength: 1,
+        maxlength: 300
     },
     sender: {
         type: Schema.Types.ObjectId,
