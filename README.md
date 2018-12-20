@@ -1,5 +1,5 @@
 # Sticky-Messages
-A full-stack app that users can post sticky-messages to each other 
+A full-stack app that users can post sticky-messages to each other.
 Deployed Version: https://sticky-messages.herokuapp.com/
 
 ## Project Overview
