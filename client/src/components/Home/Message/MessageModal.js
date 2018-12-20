@@ -16,7 +16,7 @@ class MessageModal extends React.Component {
             alert: '',
             alertModal: ''
         }
-        // need to update this here to be modular when have time later, since they are just repeats
+        // can update this here to be modular when have time later, since they are just repeats
         this.toggleModal = this.toggleModal.bind(this);
         this.toggleDropdown = this.toggleDropdown.bind(this);
         this.changeDropdownVal = this.changeDropdownVal.bind(this);
@@ -35,11 +35,12 @@ class MessageModal extends React.Component {
         this.setState({ dropdownVal: event.target.name, dropdownValId: event.target.id });
     }
 
-    // need to figure out why this one does not need binding
+    // no binding is required for this
     getInput = (event) => {
         this.setState({ [event.target.name]: event.target.value });
     }
 
+    // Post create message request, using the JWT prop passed all the way to here from App
     sendMessage() {
         if (this.state.title.length > 0 && this.state.body.length > 0 && this.state.dropdownValId.length > 0) {
             var config = {

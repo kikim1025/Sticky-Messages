@@ -7,13 +7,16 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, './client/build')));
+  // Set environmental variable for JWT auth. This is for heroku production, as heroku defaults to 'production' for Node.js applications 
+  app.set('JWTKey', process.env.JWTKey);
 } else {
   app.use(express.static(path.join(__dirname, './client/public')));
+  // For local testing. Pretty creative key name.
+  app.set('JWTKey', 'process.env.JWTKey');
 }
-// set environmental variable for JWT auth
-app.set('JWTKey', process.env.JWTKey);
 
 require('./routes/apiRoutes')(app);
 require('./routes/htmlRoutes')(app);

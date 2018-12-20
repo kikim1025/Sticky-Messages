@@ -3,6 +3,8 @@ import $ from 'axios';
 import LoginForm from './LoginForm';
 import './LoginPage.css';
 
+// This class will represent the login page
+// User can either create an account or login with existing
 class LoginPage extends React.Component {
     state = {
         username: '',
@@ -24,6 +26,7 @@ class LoginPage extends React.Component {
                 $.post('/api/user/login', { username: this.state.username, password: this.state.password })
                 .then((res) => {
                     if(res.data.status === 200) {
+                        // Calls the parent function with the generated JWT token, which will be saved to App class state
                         this.props.login(res.data.data.token);
                     } else if (res.data.status === 401) {
                         this.setState({ alert: 'Username or password is wrong.'});

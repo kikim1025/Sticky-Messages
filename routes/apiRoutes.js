@@ -6,7 +6,10 @@ const bcrypt = require('bcryptjs');
 module.exports = function(app) {
 
     // Middleware function to authenticate JWT tokens
-    // After decoding, need to make sure the decoded is present
+    // Any routes including this function will have to authenticate the JWT token
+    // In the current scheme of things, only create messages route will require authentification
+    // After decoding JWT token, the decoded.id will be included in the request body, to be passed to next() and be used as the identification of the client
+    // The passed req.body.sender is necessary for the message model 
     const decodeJWT = function(req, res, next) {
         const token = req.headers['x-access-token'];
         if (token) {
@@ -52,7 +55,7 @@ module.exports = function(app) {
             res.json({ status: 200, data: data.username, message: 'User created successfully' });
         })
         .catch(function (err) {
-            if (err.name === 'MongoError') { // Duplicate errors are handled here
+            if (err.name === 'MongoError') { // Duplicate entry errors are handled here
                 res.json({ status: 403, message: err });
             } else {
                 res.json({ status: 500, message: err });
@@ -85,6 +88,8 @@ module.exports = function(app) {
     });
 
     // Log-ins the user
+    // This will first decrypt the password for the user to compare
+    // Generates a JWT token, which will be sent back to client
     app.post('/api/user/login', function(req, res) {
         User.findOne({ username: req.body.username })
         .then(function(data) {

@@ -11,6 +11,7 @@ class HomePage extends React.Component {
     alert: '',
   }
 
+  // Retrieve user and message data
   getData = () => {
     $.get('/api/user')
     .then((res) => {
@@ -39,7 +40,7 @@ class HomePage extends React.Component {
       <div id='home-page__container'>
         <MessageModal jwt={this.props.jwt} userList={this.state.userList} getData={this.getData} logout={this.props.logout} />
         { this.state.messageList.length === 0
-          ? <div id='alert-temp'>Retrieving messages...</div> // Message database will never be empty in practice because I will post one right after deployment.
+          ? <div id='alert-temp'>Retrieving messages...</div> // Message database will never be empty in practice because I will post one right after deployment. So this will only show while axios is retrieving
           : this.state.messageList.map((m, i) => (
               <Message
                 title={m.title}
