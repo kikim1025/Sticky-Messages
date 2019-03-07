@@ -8,7 +8,7 @@ class HomePage extends React.Component {
   state = {
     messageList: [],
     userList: [],
-    alert: '',
+    alert: ''
   }
 
   // Retrieve user and message data

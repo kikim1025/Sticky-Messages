@@ -4,44 +4,35 @@ import $ from 'axios';
 import './MessageModal.css'
 
 class MessageModal extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            modal: false,
-            dropdown: false,
-            dropdownVal: 'Choose Receiver',
-            dropdownValId: '',
-            title: '',
-            body: '',
-            alert: '',
-            alertModal: ''
-        }
-        // can update this here to be modular when have time later, since they are just repeats
-        this.toggleModal = this.toggleModal.bind(this);
-        this.toggleDropdown = this.toggleDropdown.bind(this);
-        this.changeDropdownVal = this.changeDropdownVal.bind(this);
-        this.sendMessage = this.sendMessage.bind(this);
+    state = {
+        modal: false,
+        dropdown: false,
+        dropdownVal: 'Choose Receiver',
+        dropdownValId: '',
+        title: '',
+        body: '',
+        alert: '',
+        alertModal: ''
     }
 
-    toggleModal() {
+    toggleModal = () => {
         this.setState({ dropdownVal: 'Choose Receiver', dropdownValId: '', title: '', body: '', alert: '', alertModal: '', modal: !this.state.modal });
     }
 
-    toggleDropdown() {
+    toggleDropdown = () => {
         this.setState({ dropdown: !this.state.dropdown });
     }
 
-    changeDropdownVal(event) {
+    changeDropdownVal = (event) => {
         this.setState({ dropdownVal: event.target.name, dropdownValId: event.target.id });
     }
 
-    // no binding is required for this
     getInput = (event) => {
         this.setState({ [event.target.name]: event.target.value });
     }
 
     // Post create message request, using the JWT prop passed all the way to here from App
-    sendMessage() {
+    sendMessage = () => {
         if (this.state.title.length > 0 && this.state.body.length > 0 && this.state.dropdownValId.length > 0) {
             var config = {
                 headers: {'x-access-token': this.props.jwt}
